@@ -31,11 +31,15 @@ class CookBookTest < Minitest::Test
   end
 
   def test_sort_ingredients_by_cal
-    assert_equal "", @cookbook.sort_ingredients_by_cal(@mac_and_cheese)
+    assert_equal [2, 8], @cookbook.sort_ingredients_by_cal(@mac_and_cheese).values
   end
 
   def test_ingredients_hash
-    assert_equal "", @cookbook.ingredients_hash(@mac_and_cheese)
+    assert_equal 440, @cookbook.ingredients_hash(@mac_and_cheese)[:total_calories]
+  end
+
+  def test_recipe_hash
+    assert_equal "", @cookbook.recipe_hash(@mac_and_cheese)
   end
 
   def test_add_recipe

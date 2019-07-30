@@ -9,27 +9,27 @@ class CookBook
   def sort_ingredients_by_cal(recipe)
     recipe.ingredients_required.sort_by do |k, v|
       (k.calories * v)
-    end
+    end.to_h
   end
 
   def ingredients_hash(recipe)
     hash = Hash.new(0)
     hash[:ingredients] = []
-    arr = []
     hash[:total_calories] = recipe.total_calories
-    # hash_2 = Hash.new(0)
-    # binding.pry
-    recipe.ingredients_required.each do |k, v|
+    sort_ingredients_by_cal(recipe).each do |k, v|
       hash_2 = Hash.new(0)
       hash_2[:ingredient] = k.name
       hash_2[:amount] = v.to_s + " " + k.unit
-      arr << hash_2
-      # binding.pry
-      arr.sort_by
+      hash[:ingredients] << hash_2
     end
-    hash[:ingredients] = arr
-
      hash
+  end
+
+  def recipe_hash(recipe)
+    hash = Hash.new
+    hash[:name] = recipe.name
+    hash[:details] = ingredients_hash(recipe)
+    hash
   end
 
   def add_recipe(recipe)
