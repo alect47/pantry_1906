@@ -9,9 +9,11 @@ class CookBook
   def ingredients_hash(recipe)
     hash = Hash.new(0)
     hash[:ingredients] = []
+    hash_2 = Hash.new(0)
     recipe.ingredients_required.each do |k, v|
-      hash[:ingredients] << (hash[:ingredient] = k.name)
-      hash[:ingredients] << (hash[:amount] = v.to_s + " " + k.unit)
+      hash_2[:ingredient] = k.name
+      hash_2[:amount] = v.to_s + " " + k.unit
+      hash[:ingredients] << hash_2
     end
   hash
   end
