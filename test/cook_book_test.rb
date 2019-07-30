@@ -30,6 +30,10 @@ class CookBookTest < Minitest::Test
     assert_equal [{}], @cookbook.summary
   end
 
+  def test_sort_ingredients_by_cal
+    assert_equal "", @cookbook.sort_ingredients_by_cal(@mac_and_cheese)
+  end
+
   def test_ingredients_hash
     assert_equal "", @cookbook.ingredients_hash(@mac_and_cheese)
   end
