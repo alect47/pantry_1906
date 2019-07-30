@@ -20,11 +20,9 @@ class Recipe
   end
 
   def total_calories
-    total_cal = 0
-    @ingredients_required.each do |k, v|
-      total_cal += (k.calories * v)
+    @ingredients_required.sum do |k, v|
+      k.calories * v
     end
-    total_cal
   end
 
 end

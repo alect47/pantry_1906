@@ -13,8 +13,7 @@ class CookBook
   end
 
   def ingredients_hash(recipe)
-    hash = Hash.new(0)
-    hash[:ingredients] = []
+    hash = {:ingredients => []}
     hash[:total_calories] = recipe.total_calories
     sort_ingredients_by_cal(recipe).each do |k, v|
       hash_2 = Hash.new(0)

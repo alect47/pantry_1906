@@ -16,5 +16,4 @@ class IngredientTest < Minitest::Test
     assert_equal 50, @cheese.calories
   end
 
-
 end
