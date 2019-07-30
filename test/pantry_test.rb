@@ -5,7 +5,7 @@ require './lib/recipe'
 require './lib/pantry'
 require 'pry'
 
-class IngredientTest < Minitest::Test
+class PantryTest < Minitest::Test
 
   def setup
     @pantry = Pantry.new

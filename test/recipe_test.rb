@@ -4,7 +4,7 @@ require './lib/ingredient'
 require './lib/recipe'
 require 'pry'
 
-class IngredientTest < Minitest::Test
+class RecipeTest < Minitest::Test
 
   def setup
     @cheese = Ingredient.new("Cheese", "oz", 100)
