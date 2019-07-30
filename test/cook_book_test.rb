@@ -45,5 +45,4 @@ class CookBookTest < Minitest::Test
     assert_equal expected, @cookbook.summary[0]
   end
 
-
 end

@@ -35,6 +35,4 @@ class CookBook
     @summary << recipe_hash(recipe)
   end
 
-
-
 end
