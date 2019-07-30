@@ -27,7 +27,11 @@ class CookBookTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal [], @cookbook.summary
+    assert_equal [{}], @cookbook.summary
+  end
+
+  def test_ingredients_hash
+    assert_equal "", @cookbook.ingredients_hash(@mac_and_cheese)
   end
 
   def test_add_recipe
@@ -35,7 +39,7 @@ class CookBookTest < Minitest::Test
     @cookbook.add_recipe(@mac_and_cheese)
     @cookbook.add_recipe(@burger)
     expected = [{}]
-    assert_equal
+    assert_equal expected, @cookbook.summary
   end
 
 
