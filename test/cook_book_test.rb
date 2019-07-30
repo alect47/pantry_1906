@@ -43,7 +43,6 @@ class CookBookTest < Minitest::Test
   end
 
   def test_add_recipe
-    skip
     @cookbook.add_recipe(@mac_and_cheese)
     @cookbook.add_recipe(@burger)
     expected = [{}]

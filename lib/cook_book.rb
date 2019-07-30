@@ -3,12 +3,12 @@ class CookBook
   attr_reader :summary
 
   def initialize
-    @summary = [Hash.new(0)]
+    @summary = []
   end
 
   def sort_ingredients_by_cal(recipe)
     recipe.ingredients_required.sort_by do |k, v|
-      (k.calories * v)
+      (k.calories * v * -1)
     end.to_h
   end
 
@@ -33,13 +33,7 @@ class CookBook
   end
 
   def add_recipe(recipe)
-    hash = Hash.new(0)
-    hash_2 = Hash.new
-    hash_2[:ingredients] = recipe.ingredients_required
-    binding.pry
-    hash[:name] = recipe.name
-    hash[:details] = hash_2[:ingredients]
-    @summary << recipe
+    @summary << recipe_hash(recipe)
   end
 
 
