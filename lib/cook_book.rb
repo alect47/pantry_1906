@@ -8,14 +8,19 @@ class CookBook
 
   def ingredients_hash(recipe)
     hash = Hash.new(0)
-    hash[:ingredients] = []
-    hash_2 = Hash.new(0)
+    # hash[:ingredients] = []
+    arr = []
+    hash[:total_calories] = recipe.total_calories
+    # hash_2 = Hash.new(0)
+    # binding.pry
     recipe.ingredients_required.each do |k, v|
+      hash_2 = Hash.new(0)
       hash_2[:ingredient] = k.name
       hash_2[:amount] = v.to_s + " " + k.unit
-      hash[:ingredients] << hash_2
+      arr << hash_2
+      # hash[:ingredients] << hash_2
     end
-  hash
+    arr
   end
 
   def add_recipe(recipe)
