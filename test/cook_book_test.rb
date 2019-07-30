@@ -1,10 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/ingredient'
-require './lib/recipe'
-require './lib/pantry'
-require './lib/cook_book'
-require 'pry'
+require './test/test_helper'
 
 class CookBookTest < Minitest::Test
 
@@ -27,11 +21,11 @@ class CookBookTest < Minitest::Test
   end
 
   def test_attributes
-    assert_equal [{}], @cookbook.summary
+    assert_equal [], @cookbook.summary
   end
 
   def test_sort_ingredients_by_cal
-    assert_equal [2, 8], @cookbook.sort_ingredients_by_cal(@mac_and_cheese).values
+    assert_equal [8, 2], @cookbook.sort_ingredients_by_cal(@mac_and_cheese).values
   end
 
   def test_ingredients_hash
@@ -39,14 +33,16 @@ class CookBookTest < Minitest::Test
   end
 
   def test_recipe_hash
-    assert_equal "", @cookbook.recipe_hash(@mac_and_cheese)
+    assert_equal "Mac and Cheese", @cookbook.recipe_hash(@mac_and_cheese)[:name]
   end
 
   def test_add_recipe
     @cookbook.add_recipe(@mac_and_cheese)
     @cookbook.add_recipe(@burger)
-    expected = [{}]
-    assert_equal expected, @cookbook.summary
+    expected = ({:name=>"Mac and Cheese", :details=>{:ingredients=>
+        [{:ingredient=>"Macaroni", :amount=>"8 oz"},
+        {:ingredient=>"Cheese", :amount=>"2 C"}], :total_calories=>440}})
+    assert_equal expected, @cookbook.summary[0]
   end
 
 

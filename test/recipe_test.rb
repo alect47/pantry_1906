@@ -1,8 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/ingredient'
-require './lib/recipe'
-require 'pry'
+require './test/test_helper'
+
 
 class RecipeTest < Minitest::Test
 

@@ -1,9 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/ingredient'
-require './lib/recipe'
-require './lib/pantry'
-require 'pry'
+require './test/test_helper'
+
 
 class PantryTest < Minitest::Test
 
